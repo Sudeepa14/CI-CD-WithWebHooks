@@ -20,7 +20,7 @@ router.post('/newPull',function(req,res){
   var hmac, signature;
   //generating hash using the secret and the request body to verify the sender. 
   hmac = crypto.createHmac("sha1", process.env.SECRET_TOKEN);
-  hmac.update(req.body);
+  hmac.update(JSON.stringify(req.body));
   signature = hmac.digest("hex");
   //conparing the generated one with the one github sent
   console.log(crypto.timingSafeEqual(signature,req.header.X-Hub-Signature));
