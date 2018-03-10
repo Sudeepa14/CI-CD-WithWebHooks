@@ -18,7 +18,7 @@ router.post('/newPull',function(req,res){
   console.log("a new request came in");
   let secret =req.body.secret;
   CI.builder(res);
-  res.sendStatus(200);
+  // res.sendStatus(200);
 
 });
 router.get('/test',function(req,res){
