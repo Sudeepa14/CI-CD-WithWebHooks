@@ -26,7 +26,9 @@ router.post('/newPull',function(req,res){
   console.log(crypto.timingSafeEqual(signature,req.header.X-Hub-Signature));
 
   console.log("a new request came in");
-  let secret =req.body.secret;
+  let secret =req.body.hook.config.secret;
+  console.log(secret==="testSecret");
+  console.log(secret);
   CI.builder(res);
   // res.sendStatus(200);
 
