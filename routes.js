@@ -24,7 +24,7 @@ router.post('/newPull',function(req,res){
   signature = hmac.digest("hex");
   //conparing the generated one with the one github sent
   console.log(req.headers);
-  console.log(crypto.timingSafeEqual(signature,req.headers.x-hub-signature));
+  console.log(crypto.timingSafeEqual(signature,req.headers.'x-hub-signature'));
 
   console.log("a new request came in");
   let secret =req.body.hook.config.secret;
