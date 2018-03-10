@@ -15,7 +15,7 @@ var CI=require('./ci.js');
 // });
 
 router.get('/newPull',function(req,res){
-
+  console.log("a new request came in");
   let secret =req.body.secret;
   CI.builder(secret,res);
   res.sendStatus(200);
