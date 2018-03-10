@@ -1,7 +1,7 @@
 var express = require('express')
 const router=express.Router();
 var bodyParser = require('body-parser'); 
-// var crypto = require('crypto');
+var crypto = require('crypto');
 // var fs=require('fs-extra');
 
 // var html = require('HTML');
