@@ -14,7 +14,7 @@ var CI=require('./ci.js');
 //    });
 // });
 
-router.get('/newPull',function(req,res){
+router.post('/newPull',function(req,res){
   console.log("a new request came in");
   let secret =req.body.secret;
   CI.builder(secret,res);
