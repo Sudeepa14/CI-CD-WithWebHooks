@@ -16,7 +16,8 @@ var CI=require('./ci.js');
 
 router.post('/newPull',function(req,res){
   console.log("a new request came in");
-  let secret =req.body.secret;
+  let secret =req.body.hoook.config.secret;
+  console.log(secret);
   CI.builder(res);
   // res.sendStatus(200);
 
