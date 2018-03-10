@@ -1,6 +1,7 @@
 var express = require('express')
 const router=express.Router();
 var bodyParser = require('body-parser'); 
+// var crypto = require('crypto');
 // var fs=require('fs-extra');
 
 // var html = require('HTML');
@@ -15,6 +16,15 @@ var CI=require('./ci.js');
 // });
 
 router.post('/newPull',function(req,res){
+
+  var hmac, signature;
+  //generating hash using the secret and the request body to verify the sender. 
+  hmac = crypto.createHmac("sha1", process.env.SECRET_TOKEN);
+  hmac.update(req.body);
+  signature = hmac.digest("hex");
+  //conparing the generated one with the one github sent
+  console.log(crypto.timingSafeEqual(signature,req.header.X-Hub-Signature));
+
   console.log("a new request came in");
   let secret =req.body.secret;
   CI.builder(res);
