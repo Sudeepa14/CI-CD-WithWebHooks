@@ -2,6 +2,7 @@ var express = require('express')
 const router=express.Router();
 var bodyParser = require('body-parser'); 
 var crypto = require('crypto');
+require('dotenv').config()
 // var fs=require('fs-extra');
 
 // var html = require('HTML');
